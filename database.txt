@@ -1,6 +1,10 @@
 CREATE DATABASE IF NOT EXISTS projeto_db;
 USE projeto_db;
 
+<<<<<<< HEAD
+=======
+-- Tabela de Utilizadores
+>>>>>>> 96c6297d45370ac21e778bc9682a9aa5975eaf6a
 CREATE TABLE utilizadores (
     id INT AUTO_INCREMENT PRIMARY KEY,
     nome VARCHAR(100) NOT NULL,
@@ -9,17 +13,29 @@ CREATE TABLE utilizadores (
     data_registo TIMESTAMP DEFAULT CURRENT_TIMESTAMP
 );
 
+<<<<<<< HEAD
+=======
+-- Tabela de Atores/Diretores
+>>>>>>> 96c6297d45370ac21e778bc9682a9aa5975eaf6a
 CREATE TABLE atores_diretores (
     id INT AUTO_INCREMENT PRIMARY KEY,
     nome VARCHAR(150) NOT NULL,
     tipo ENUM('ator','diretor') NOT NULL
 );
 
+<<<<<<< HEAD
+=======
+-- Tabela de Géneros
+>>>>>>> 96c6297d45370ac21e778bc9682a9aa5975eaf6a
 CREATE TABLE generos (
     id INT AUTO_INCREMENT PRIMARY KEY,
     nome VARCHAR(100) NOT NULL UNIQUE
 );
 
+<<<<<<< HEAD
+=======
+-- Tabela de Filmes/Séries
+>>>>>>> 96c6297d45370ac21e778bc9682a9aa5975eaf6a
 CREATE TABLE filmes_series (
     id INT AUTO_INCREMENT PRIMARY KEY,
     nome VARCHAR(200) NOT NULL,
@@ -32,6 +48,10 @@ CREATE TABLE filmes_series (
     FOREIGN KEY (diretor_id) REFERENCES atores_diretores(id)
 );
 
+<<<<<<< HEAD
+=======
+-- Tabela de relação Filme/Série ↔ Géneros (N:N)
+>>>>>>> 96c6297d45370ac21e778bc9682a9aa5975eaf6a
 CREATE TABLE genero_filme (
     movie_id INT,
     genre_id INT,
@@ -40,6 +60,10 @@ CREATE TABLE genero_filme (
     FOREIGN KEY (genre_id) REFERENCES generos(id) ON DELETE CASCADE
 );
 
+<<<<<<< HEAD
+=======
+-- Tabela de relação Filme/Série ↔ Elenco (N:N)
+>>>>>>> 96c6297d45370ac21e778bc9682a9aa5975eaf6a
 CREATE TABLE movie_cast (
     movie_id INT,
     actor_id INT,
@@ -48,7 +72,11 @@ CREATE TABLE movie_cast (
     FOREIGN KEY (actor_id) REFERENCES atores_diretores(id) ON DELETE CASCADE
 );
 
+<<<<<<< HEAD
 
+=======
+-- Tabela de Reviews
+>>>>>>> 96c6297d45370ac21e778bc9682a9aa5975eaf6a
 CREATE TABLE reviews (
     id INT AUTO_INCREMENT PRIMARY KEY,
     user_id INT NOT NULL,
@@ -61,6 +89,7 @@ CREATE TABLE reviews (
     FOREIGN KEY (movie_id) REFERENCES filmes_series(id) ON DELETE CASCADE
 );
 
+<<<<<<< HEAD
 CREATE TABLE review_votes (
     user_id INT,
     review_id INT,
@@ -70,6 +99,8 @@ CREATE TABLE review_votes (
 );
 
 
+=======
+>>>>>>> 96c6297d45370ac21e778bc9682a9aa5975eaf6a
 CREATE TABLE favoritos (
     user_id INT,
     movie_id INT,

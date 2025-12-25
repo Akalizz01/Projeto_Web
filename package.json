@@ -20,12 +20,18 @@
   "description": "",
   "dependencies": {
     "axios": "^1.13.2",
+<<<<<<< HEAD
     "bcrypt": "^6.0.0",
+=======
+>>>>>>> 96c6297d45370ac21e778bc9682a9aa5975eaf6a
     "body-parser": "^2.2.1",
     "cors": "^2.8.5",
     "dotenv": "^17.2.3",
     "express": "^5.2.1",
+<<<<<<< HEAD
     "jsonwebtoken": "^9.0.3",
+=======
+>>>>>>> 96c6297d45370ac21e778bc9682a9aa5975eaf6a
     "mysql2": "^3.15.3"
   }
 }

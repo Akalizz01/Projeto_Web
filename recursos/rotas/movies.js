@@ -1,7 +1,11 @@
 const express = require('express');
 const router = express.Router();
 const connection = require('../database/db');
+<<<<<<< HEAD
 const { searchMovies, searchSeries } = require('../services/tmdb');
+=======
+const { searchMovies, searchSeries } = require('../services/tmbd');
+>>>>>>> 96c6297d45370ac21e778bc9682a9aa5975eaf6a
 
 // Criar filme/série
 router.post('/', (req, res) => {
