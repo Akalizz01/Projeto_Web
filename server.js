@@ -1,7 +1,6 @@
 const express = require('express');
 const bodyParser = require('body-parser');
 const cors = require('cors');
-require('dotenv').config();
 
 const userRoutes = require('./recursos/rotas/users');
 const movieRoutes = require('./recursos/rotas/movies');

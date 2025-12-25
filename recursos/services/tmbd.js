@@ -1,7 +1,6 @@
 const axios = require('axios');
-require('dotenv').config();
 
-const TMDB_API_KEY = process.env.TMDB_API_KEY;
+const TMDB_API_KEY = "784042639a06c6a718c60922ab2a4a63";
 const BASE_URL = 'https://api.themoviedb.org/3';
 
 async function searchMovies(query) {

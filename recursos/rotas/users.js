@@ -1,27 +1,36 @@
 const express = require('express');
 const router = express.Router();
-const pool = require('../database/db');
+const connection = require('../database/db');
 
-router.post('/', async (req, res) => {
+// Criar utilizador
+router.post('/', (req, res) => {
   const { nome, email, password } = req.body;
-  try {
-    const [result] = await pool.query(
-      'INSERT INTO utilizadores (nome, email, password) VALUES (?, ?, ?)',
-      [nome, email, password]
-    );
-    res.status(201).json({ id: result.insertId, nome, email });
-  } catch (err) {
-    res.status(500).json({ error: err.message });
-  }
+
+  connection.query(
+    "INSERT INTO utilizadores (nome, email, password) VALUES (?, ?, ?)",
+    [nome, email, password],
+    (err, result) => {
+      if (err) return res.status(500).json({ error: err.message });
+
+      res.status(201).json({
+        id: result.insertId,
+        nome,
+        email
+      });
+    }
+  );
 });
 
-router.get('/', async (req, res) => {
-  try {
-    const [rows] = await pool.query('SELECT id, nome, email FROM utilizadores');
-    res.json(rows);
-  } catch (err) {
-    res.status(500).json({ error: err.message });
-  }
+// Listar utilizadores
+router.get('/', (req, res) => {
+  connection.query(
+    "SELECT id, nome, email FROM utilizadores",
+    (err, rows) => {
+      if (err) return res.status(500).json({ error: err.message });
+
+      res.json(rows);
+    }
+  );
 });
 
 module.exports = router;

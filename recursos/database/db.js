@@ -1,14 +1,20 @@
-const mysql = require('mysql2/promise');
-require('dotenv').config();
+const mysql = require('mysql2');
 
-const pool = mysql.createPool({
-  host: process.env.DB_HOST || 'localhost',
-  user: process.env.DB_USER || 'root',
-  password: process.env.DB_PASS || '',
-  database: process.env.DB_NAME || 'filmes_series_db',
-  waitForConnections: true,
-  connectionLimit: 10,
-  queueLimit: 0
+const connectionOptions = {
+  host: "127.0.0.1",
+  user: "root",
+  password: "12345",
+  database: "projeto_db"
+};
+
+const connection = mysql.createConnection(connectionOptions);
+
+connection.connect((err) => {
+  if (err) {
+    console.error("Erro ao ligar à base de dados:", err);
+  } else {
+    console.log("Ligado à base de dados MySQL");
+  }
 });
 
-module.exports = pool;
+module.exports = connection;
